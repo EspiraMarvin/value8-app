@@ -43,7 +43,7 @@ export default {
     icon: {
       type: String,
       default: ''
-    }
+    },
   },
   data () {
     return {

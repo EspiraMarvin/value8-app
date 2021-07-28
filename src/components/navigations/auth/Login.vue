@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       formData: {
-        email: 'espira@gmail.com',
+        email: 'marvin@gmail.com',
         password: '123secret'
       },
       isPwd: true,
@@ -71,12 +71,14 @@ export default {
               if (user.password === this.formData.password && user.email === this.formData.email) {
                 if (user.email === 'espira@gmail.com') {
                   this.formData.role = 'admin'
+                  this.formData.name = user.name
                   this.$store.commit('users/SET_AUTH', true)
                   this.$store.dispatch('users/LoginUser', this.formData)
                   this.loading = false
                   this.$router.push({name: 'AdminLayout'})
                 }else if (user.email === 'marvin@gmail.com') {
-                  this.formData.role = 'normal'
+                  this.formData.role = 'user'
+                  this.formData.name = user.name
                   this.$store.commit('users/SET_AUTH', true)
                   this.$store.dispatch('users/LoginUser', this.formData)
                   this.loading = false
