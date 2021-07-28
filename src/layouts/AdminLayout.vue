@@ -15,7 +15,9 @@
           Quasar App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>
+          <q-btn flat class="text-capitalize" label="logout admin" />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -28,9 +30,9 @@
       <q-list>
         <q-item-label
           header
-          class="text-grey-8"
+          class="text-grey-8 q-mt-md"
         >
-          Essential Links
+<!--          Essential Links-->
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -47,51 +49,33 @@
 
 </template>
 <script>
-import EssentialLink from "components/EssentialLink";
+import EssentialLink from 'components/navigations/sidebar/EssentialLink.vue'
+
+const links = [
+  { to: '/', name: 'Projects', icon: 'dashboard' },
+  { to: '/users', name: 'Users', icon: 'perm_identity' },
+  { to: '/tasks', name: 'Tasks', icon: 'perm_identity' },
+  { to: '/userlistchat', name: 'Chat', icon: 'chat_bubble_outline' },
+  { to: '/settings', name: 'Settings', icon: 'more_horiz' }
+]
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
+    title: 'Products',
+    icon: 'store',
+    link: 'https://quasar.dev'
+  },
+  {
+    title: 'Orders Pending',
     icon: 'school',
     link: 'https://quasar.dev'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
+    title: 'Orders Processed',
     icon: 'code',
     link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
   }
 ];
+
 
 export default {
   name: "AdminLayout",
@@ -99,6 +83,7 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
+      essentialLinks: linksData
     }
   }
 }
