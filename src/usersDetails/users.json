@@ -1,0 +1,14 @@
+[
+  {
+    "name": "espira",
+    "email":  "espira@gmail.com",
+    "password": "123secret",
+    "role": "admin"
+  },
+  {
+    "name": "marvin",
+    "email":  "marvin@gmail.com",
+    "password": "123secret",
+    "role": "normal"
+  }
+]
