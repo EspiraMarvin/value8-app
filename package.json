@@ -6,12 +6,17 @@
   "author": "EspiraMarvin <espiramarvin@gmail.com>",
   "private": true,
   "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "add-pwa": "quasar mode add pwa",
+    "build-pwa": "quasar build -m pwa",
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
+    "module": "^1.1.0",
     "quasar": "^1.0.0"
   },
   "devDependencies": {
