@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       formData: {
-        email: 'marvin@gmail.com',
+        email: 'espira@gmail.com',
         password: '123secret'
       },
       isPwd: true,

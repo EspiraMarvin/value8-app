@@ -16,7 +16,7 @@
         </q-toolbar-title>
 
         <div>
-          <q-btn flat class="text-capitalize" label="logout admin" />
+          <q-btn flat class="text-capitalize" label="logout" @click="logout" />
         </div>
       </q-toolbar>
     </q-header>
@@ -84,6 +84,12 @@ export default {
     return {
       leftDrawerOpen: false,
       essentialLinks: linksData
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('users/LogOutUser')
+      this.$router.replace({name: 'AuthLogin'})
     }
   }
 }

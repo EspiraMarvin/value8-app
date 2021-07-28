@@ -1,39 +1,17 @@
 import authRoutes from 'src/router/auth'
 import adminRoutes from 'src/router/admin'
 import mainRoutes from 'src/router/main'
-import store from '../store';
-
-// const ifNotAuth = (_to,_from, next) => {
-//   if (!store().getters['users/GET_AUTH']){
-//     next();
-//     return;
-//   }
-//   next('/')
-// }
-//
-// console.log('ifNotAuth', ifNotAuth)
-//
-// const ifAuth = (_to,_from, next) => {
-//   if (!store().getters['users/GET_AUTH']){
-//     next();
-//     return;
-//   }
-//   next('/auth')
-// }
-//
-// console.log('ifAuth', ifAuth)
-
 
 const routes = [
   {
     path: '/',
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, role: 'user' },
     component: () => import('layouts/AuthLayout.vue'),
     children: [...authRoutes]
   },
   {
     path: '/retailer',
-    meta: { requiresAuth: true, role: 'normal' },
+    meta: { requiresAuth: true, role: 'user' },
     component: () => import('layouts/MainLayout.vue'),
     children: [...mainRoutes]
   },

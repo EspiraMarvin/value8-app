@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    meta: { requiresAuth: true, role: 'normal', title: 'Value Chain | Orders' },
+    meta: { requiresAuth: true, role: 'user', title: 'Value Chain | Orders' },
     name: 'MainLayout',
     redirect: {
       name: 'Orders'
@@ -9,7 +9,7 @@ export default [
   },
   {
     path: 'orders',
-    meta: { requiresAuth: true, role: 'normal', title: 'Value Chain | Orders' },
+    meta: { requiresAuth: true, role: 'user', title: 'Value Chain | Orders' },
     name: 'Orders',
     component: () =>
       import(

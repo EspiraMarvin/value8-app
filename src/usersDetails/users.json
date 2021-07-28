@@ -9,6 +9,6 @@
     "name": "marvin",
     "email":  "marvin@gmail.com",
     "password": "123secret",
-    "role": "normal"
+    "role": "user"
   }
 ]
