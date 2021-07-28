@@ -1,6 +1,6 @@
 
 const state = () => ({
-
+  orders: []
 })
 
 const getters = {

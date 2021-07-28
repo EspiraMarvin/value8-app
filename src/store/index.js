@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 // import example from './module-example'
 import products from './modules/products'
 import orders from './modules/orders'
+import users from './modules/users'
 
 Vue.use(Vuex)
 
@@ -17,8 +18,9 @@ Vue.use(Vuex)
  */
 
 export default function (/* { ssrContext } */) {
-  const Store = new Vuex.Store({
+  return new Vuex.Store({
     modules: {
+      users,
       products,
       orders
     },
@@ -27,6 +29,4 @@ export default function (/* { ssrContext } */) {
     // for dev mode only
     strict: process.env.DEBUGGING
   })
-
-  return Store
 }

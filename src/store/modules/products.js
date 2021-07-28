@@ -1,6 +1,8 @@
 
 const state = () => ({
-
+  products: [{
+    shoes: "fenty"
+  }]
 })
 
 const getters = {
