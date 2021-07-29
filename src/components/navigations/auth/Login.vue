@@ -11,13 +11,18 @@
       outlined
       class="q-mb-md"
       type="email"
-      label="Email" />
+      label="Email"
+      lazy-rules
+      :rules="[val => !!val || 'Email is missing', emailFormat]"
+    />
     <q-input
       v-model="formData.password"
       :type="isPwd ? 'password' : 'text'"
       outlined
       class="q-mb-md"
       label="Password"
+      lazy-rules
+      :rules="[val => (val && val.length > 0) || 'Please enter password', hasWhiteSpacesOnly]"
     >
       <template v-slot:append>
         <q-icon
@@ -30,8 +35,7 @@
     <div class="row">
       <q-space />
       <q-btn
-        :loading="loading"
-        :disable="loading"
+        :disabled="disable"
         type="submit"
         color="primary"
         class="q-px-md q-py-sm"
@@ -45,52 +49,60 @@
 </template>
 
 <script>
+import utils from 'src/helpers/utils';
 import usersData from 'src/usersDetails/users.json'
 export default {
   name: "Login",
   props: ['tab'],
   data () {
     return {
+      ...utils,
       formData: {
-        email: 'marvin@gmail.com',
+        email: 'espira@gmail.com',
         password: '123secret'
       },
       isPwd: true,
-      loading: false,
+      errorMessage: '',
       users: usersData
+    }
+  },
+  computed: {
+    disable() {
+      return !this.formData.email.replace(/\s/g, '').length
+        || !this.formData.password.replace(/\s/g, '').length
+        || this.emailFormat(this.formData.email) === 'Invalid email'
     }
   },
   methods: {
     submitForm() {
       this.$refs.authForm.validate().then(success => {
         if (success){
-          this.loading = true
-          const validUsers = Object.entries(usersData)
-          validUsers.map(users => {
-            users.filter(user => {
-              if (user.password === this.formData.password && user.email === this.formData.email) {
-                if (user.email === 'espira@gmail.com') {
-                  this.formData.role = 'admin'
-                  this.formData.name = user.name
-                  this.$store.commit('users/SET_AUTH', true)
-                  this.$store.dispatch('users/LoginUser', this.formData)
-                  this.loading = false
-                  this.$router.push({name: 'AdminLayout'})
-                }else if (user.email === 'marvin@gmail.com') {
-                  this.formData.role = 'user'
-                  this.formData.name = user.name
-                  this.$store.commit('users/SET_AUTH', true)
-                  this.$store.dispatch('users/LoginUser', this.formData)
-                  this.loading = false
-                  this.$router.push({name: 'MainLayout'})
+            const validUsers = Object.entries(usersData)
+            validUsers.map(users => {
+              users.filter(user => {
+                if (user.password === this.formData.password && user.email === this.formData.email) {
+                  if (user.email === 'espira@gmail.com') {
+                    this.formData.role = 'store'
+                    this.formData.name = user.name
+                    this.$store.commit('users/SET_AUTH', true)
+                    this.$store.dispatch('users/LOGIN_USER', this.formData)
+                      this.$router.push({name: 'StoreLayout'})
+                  }else if (user.email === 'marvin@gmail.com') {
+                    this.formData.role = 'warehouse'
+                    this.formData.name = user.name
+                    this.$store.commit('users/SET_AUTH', true)
+                    this.$store.dispatch('users/LOGIN_USER', this.formData)
+                    this.$router.push({name: 'WarehouseLayout'})
+                  }
                 }
-              }
+                else if (user.password !== this.formData.password && user.email !== this.formData.email) {
+                  this.loading = false
+                }
+              })
             })
-          })
         } else {
-          this.loading = false
           this.$q.notify({
-            message: 'Error Occurred. Please try again'
+            message: 'An Error Occurred. Please try again'
           })
         }
       })
