@@ -17,7 +17,7 @@ module.exports = function (/* ctx */) {
     // preFetch: true,
 
     // app boot file (/src/boot)
-    // --> boot files are part of "main.js"
+    // --> boot files are part of "warehouse.js"
     // https://v1.quasar.dev/quasar-cli/boot-files
     boot: [
 
