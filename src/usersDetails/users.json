@@ -3,12 +3,12 @@
     "name": "espira",
     "email":  "espira@gmail.com",
     "password": "123secret",
-    "role": "admin"
+    "role": "store"
   },
   {
     "name": "marvin",
     "email":  "marvin@gmail.com",
     "password": "123secret",
-    "role": "user"
+    "role": "warehouse"
   }
 ]
