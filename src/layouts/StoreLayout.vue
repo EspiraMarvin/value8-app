@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Admin Panel
+          Store Panel
         </q-toolbar-title>
         <q-btn-dropdown stretch flat>
           <template #label>
@@ -68,12 +68,12 @@ import EssentialLink from 'components/navigations/sidebar/EssentialLink.vue'
 
 const linksData = [
   {
-    to: 'AdminProducts',
+    to: 'StoreProducts',
     title: 'Products',
     icon: 'store',
   },
   {
-    to: 'AdminOrders',
+    to: 'StoreOrders',
     title: 'Orders',
     icon: 'code',
   }

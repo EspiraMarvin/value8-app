@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Retailer Panel
+          Warehouse Panel
         </q-toolbar-title>
         <q-btn-dropdown stretch flat>
           <template #label>
@@ -75,7 +75,7 @@ const linksData = [
 ];
 
 export default {
-  name: 'MainLayout',
+  name: 'WarehouseLayout',
   components: { EssentialLink },
   data () {
     return {
