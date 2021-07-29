@@ -42,14 +42,17 @@
       <q-list>
         <q-item-label
           header
-          class="text-grey-8 q-mt-md"
+          class="text-blue-grey-10 q-mt-md"
         >
-<!--          Essential Links-->
+          Welcome {{ user.name }}
         </q-item-label>
+
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
-          v-bind="link"
+          :to="link.to"
+         :title="link.title"
+          :icon="link.icon"
         />
       </q-list>
     </q-drawer>
@@ -63,28 +66,16 @@
 <script>
 import EssentialLink from 'components/navigations/sidebar/EssentialLink.vue'
 
-const links = [
-  { to: '/', name: 'Projects', icon: 'dashboard' },
-  { to: '/users', name: 'Users', icon: 'perm_identity' },
-  { to: '/tasks', name: 'Tasks', icon: 'perm_identity' },
-  { to: '/userlistchat', name: 'Chat', icon: 'chat_bubble_outline' },
-  { to: '/settings', name: 'Settings', icon: 'more_horiz' }
-]
 const linksData = [
   {
+    to: 'AdminProducts',
     title: 'Products',
     icon: 'store',
-    link: 'https://quasar.dev'
   },
   {
-    title: 'Orders Pending',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Orders Processed',
+    to: 'AdminOrders',
+    title: 'Orders',
     icon: 'code',
-    link: 'https://github.com/quasarframework'
   }
 ];
 
@@ -105,7 +96,7 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.dispatch('users/LogOutUser')
+      this.$store.dispatch('users/LOGOUT_USER')
       this.$router.replace({name: 'AuthLogin'})
     }
   }

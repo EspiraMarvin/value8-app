@@ -1,25 +1,25 @@
 import authRoutes from 'src/router/auth'
-import adminRoutes from 'src/router/admin'
-import mainRoutes from 'src/router/main'
+import storeRoutes from 'src/router/store'
+import warehouseRoutes from 'src/router/warehouse'
 
 const routes = [
   {
     path: '/',
-    meta: { requiresAuth: false, role: 'user' },
+    meta: { requiresAuth: false },
     component: () => import('layouts/AuthLayout.vue'),
     children: [...authRoutes]
   },
   {
-    path: '/retailer',
-    meta: { requiresAuth: true, role: 'user' },
-    component: () => import('layouts/MainLayout.vue'),
-    children: [...mainRoutes]
+    path: '/warehouse',
+    meta: { requiresAuth: true, role: 'warehouse' },
+    component: () => import('layouts/WarehouseLayout.vue'),
+    children: [...warehouseRoutes]
   },
   {
-    path: '/admin',
-    meta: { requiresAuth: true, role: 'admin'},
-    component: () => import('layouts/AdminLayout.vue'),
-    children: [...adminRoutes]
+    path: '/store',
+    meta: { requiresAuth: true, role: 'store'},
+    component: () => import('layouts/StoreLayout.vue'),
+    children: [...storeRoutes]
   },
 
   // Always leave this as last one,

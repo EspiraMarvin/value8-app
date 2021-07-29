@@ -1,11 +1,8 @@
 export default [
   {
-    path: '/',
-    meta: { requiresAuth: true, role: 'user', title: 'Value Chain | Orders' },
-    name: 'MainLayout',
-    redirect: {
-      name: 'Orders'
-    }
+    path: '/warehouse',
+    meta: { requiresAuth: true, role: 'user', title: 'Value Chain | Manage Products | Orders' },
+    name: 'WarehouseLayout'
   },
   {
     path: 'orders',

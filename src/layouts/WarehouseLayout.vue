@@ -42,14 +42,17 @@
       <q-list>
         <q-item-label
           header
-          class="text-grey-8 q-mt-md"
+          class="text-blue-grey-10 q-mt-md"
         >
-<!--         Value Chain-->
+          Welcome {{ user.name }}
         </q-item-label>
+
         <EssentialLink
           v-for="link in essentialLinks"
-          :key="link.to"
-          v-bind="link"
+          :key="link.title"
+          :to="link.to"
+          :title="link.title"
+          :icon="link.icon"
         />
       </q-list>
     </q-drawer>
@@ -65,16 +68,9 @@ import EssentialLink from 'components/navigations/sidebar/EssentialLink.vue'
 
 const linksData = [
   {
-    to: 'orders',
-    title: 'Orders Pending',
+    to: 'Orders',
+    title: 'Orders',
     icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    to: 'orders',
-    title: 'Orders Processed',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
   }
 ];
 
@@ -94,7 +90,7 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.dispatch('users/LogOutUser')
+      this.$store.dispatch('users/LOGOUT_USER')
       this.$router.replace({name: 'AuthLogin'})
     }
   }

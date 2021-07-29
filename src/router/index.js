@@ -30,16 +30,9 @@ export default function (/* { store, ssrContext } */) {
 
   // // access control
   // const isUserLoggedIn = store().getters['users/GET_AUTH']
-  // console.log('Auth', isUserLoggedIn)
-  //
-  // // console.log('user', store().getters['/users/GET_USER'])
   //
   // Router.beforeEach(async (to, from, next) => {
-  //   if(isUserLoggedIn && !store().getters['users/GET_USER'].role) {
   //
-  //     await store().getters['users/GET_USER', {}].then(response => {})
-  //     // const getUser = await store().getters['users/GET_USER', {}].then(response => {})
-  //   }
   //
   //   const auth = to.meta.requiresAuth;
   //   const pathRole = to.meta.role || false;
@@ -72,16 +65,12 @@ export default function (/* { store, ssrContext } */) {
   //     const userRole = store.getters['users/GET_USER'].role;
   //     if (pathRole === userRole) {
   //       next();
-  //     } else if (userRole === 'admin') {
+  //     } else if (userRole === 'store') {
   //       // always navigate for admin roles
-  //       next(
-  //         // {
-  //         // name: 'AdminLayout'
-  //       // }
-  //     );
-  //     } else if(userRole === 'use') {
+  //       next();
+  //     } else if(userRole !== pathRole && userRole === 'warehouse') {
   //       next({
-  //         name: 'MainLayout'
+  //         name: 'WarehouseLayout'
   //       });
   //     }
   //   }
@@ -93,7 +82,7 @@ export default function (/* { store, ssrContext } */) {
   //    */
   //   if (isUserLoggedIn && redirectLoggedIn) {
   //     next({
-  //       name: 'MainLayout'
+  //       name: 'WarehouseLayout'
   //     });
   //   }
   //
