@@ -21,12 +21,10 @@ const mutations = {
 }
 
 const actions = {
-  LoginUser(context, payload) {
-    console.log('payload', payload)
-      context.commit('SET_USER', payload)
+  LOGIN_USER(context, payload) {
+    context.commit('SET_USER', payload)
   },
-  LogOutUser(context) {
-    console.log('clicked logout')
+  LOGOUT_USER(context) {
     context.commit('SET_USER', {})
     context.commit('SET_AUTH', false)
   }
