@@ -58,8 +58,8 @@ export default {
     return {
       ...utils,
       formData: {
-        email: 'espira@gmail.com',
-        password: '123secret'
+        email: '',
+        password: ''
       },
       isPwd: true,
       errorMessage: '',
