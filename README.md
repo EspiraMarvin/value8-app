@@ -1,10 +1,8 @@
 ## Value Chain (value-chain-app)
 
-A value chain app
+A value chain app. Link is the one below.
+### https://value8-app.vercel.app/
 
-### [Click Here To Visit the App]('https://value8-app.vercel.app/login')
-
-https://value8-app.vercel.app/login
 
 ##Note:
 #### * I have provided credentials for:
