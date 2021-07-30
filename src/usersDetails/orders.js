@@ -50,5 +50,15 @@ export const orders =
     id: uid(),
     name: 'Biscuits',
     status: false
+  },
+  {
+    id: uid(),
+    name: 'Cassava',
+    status: false
+  },
+  {
+    id: uid(),
+    name: 'Fish',
+    status: false
   }
 ]

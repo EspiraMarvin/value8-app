@@ -15,7 +15,6 @@ const mutations = {
   },
   SET_USER(state, data){
     state.user = data
-    console.log('state user', state.user)
   },
 
 }

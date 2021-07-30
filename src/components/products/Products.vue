@@ -15,13 +15,11 @@
       </q-item-section>
       <q-item-section side>
         <q-btn
-          v-if="user === 'store'"
-          @click="sale(product.id)"
-          flat
-          round
-          dense
-          color="primary"
-          icon="send" />
+          id="saleProduct"
+          @click="saleProduct(product.id)"
+           v-if="user === 'store'"
+          flat round dense color="primary" icon="send"
+        />
       </q-item-section>
     </q-item>
   </q-list>
@@ -51,7 +49,7 @@ export default {
     }
   },
   methods: {
-    sale(id) {
+    saleProduct(id) {
       console.log('index', id)
       this.$store.dispatch('products/SALE_PRODUCT', id)
     }

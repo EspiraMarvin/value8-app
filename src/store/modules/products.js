@@ -53,15 +53,14 @@ const mutations = {
 
 const actions = {
   UPDATE_ORDERS(context) {
-    console.log('update orders onw')
-    function generateRandomOrders(){
+    // generate 3 unprocessed reorders after product count on the store reaches 2
+    (() => {
       const size = 3
       const preorders = orders.splice(0, size).map(order => {
         return order
       })
       context.commit('SET_ORDERS', preorders)
-    }
-    generateRandomOrders()
+    })()
   },
   UPDATE_PRODUCT(context, product){
     context.commit('ADD_PRODUCT', product)
