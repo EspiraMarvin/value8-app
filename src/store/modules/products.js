@@ -46,7 +46,6 @@ const mutations = {
     state.products = state.products.filter(product => product.id !== id)
   },
   SET_ORDERS(state, data){
-    console.log('data orders', data)
     state.orders = data
   }
 }
