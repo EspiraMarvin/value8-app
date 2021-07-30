@@ -14,8 +14,8 @@ A value chain app. Link is the one below.
  password = 123secret
 
 #### ** DO NOT Reload your window / browser when using the app.
-### The data is store in Vuex and is not persistent
-### Reloading may crash the app.
+###  The data is store in Vuex and is not persistent
+### Reloading may crash the app. If it does crash copy the link above and run it again
 
 
 ### To run app follow the installation process
