@@ -10,7 +10,7 @@ A value chain app. Link is the one below.
  email = espira@gmail.com
  password = 123secret
 #### 2.warehouse actor ->
- email = espira@gmail.com
+ email = marvin@gmail.com
  password = 123secret
 
 #### ** DO NOT Reload your window / browser when using the app.
